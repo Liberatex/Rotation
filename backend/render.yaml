@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: rotation-backend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    healthCheckPath: /health
+
+databases:
+  - name: rotation-postgres
+    plan: free
+    databaseName: rotation_db
+    user: rotation_user
+

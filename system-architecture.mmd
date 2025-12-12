@@ -1,0 +1,143 @@
+graph TB
+    subgraph "Client Layer - Mobile App"
+        A[Mobile App - React Native/Flutter]
+        A1[Authentication Module]
+        A2[Session Management]
+        A3[Timer Controller]
+        A4[Audio/Vibration Engine]
+        A5[Profile Management]
+        A6[Payment/Subscription]
+        
+        A --> A1
+        A --> A2
+        A --> A3
+        A --> A4
+        A --> A5
+        A --> A6
+    end
+    
+    subgraph "API Gateway Layer"
+        B[API Gateway / Load Balancer]
+        B1[Rate Limiting]
+        B2[Authentication Middleware]
+        B3[Request Routing]
+        
+        B --> B1
+        B --> B2
+        B --> B3
+    end
+    
+    subgraph "Backend Services - Microservices"
+        C[User Service]
+        D[Session Service]
+        E[Rotation Service]
+        F[Notification Service]
+        G[Payment Service]
+        H[Analytics Service]
+        I[Content Service]
+        
+        C1[User Auth & Profiles]
+        D1[Session CRUD]
+        D2[Real-time Sync]
+        E1[Timer Logic]
+        E2[Turn Management]
+        F1[Push Notifications]
+        F2[Sound/Vibration Triggers]
+        G1[Subscription Management]
+        G2[Payment Processing]
+        I1[Custom Sounds Library]
+        I2[Asset Management]
+        
+        C --> C1
+        D --> D1
+        D --> D2
+        E --> E1
+        E --> E2
+        F --> F1
+        F --> F2
+        G --> G1
+        G --> G2
+        I --> I1
+        I --> I2
+    end
+    
+    subgraph "Real-time Layer"
+        J[WebSocket Server]
+        J1[Socket.io / Firebase Realtime]
+        J2[Session State Sync]
+        
+        J --> J1
+        J --> J2
+    end
+    
+    subgraph "Data Layer"
+        K[(Primary Database - PostgreSQL)]
+        L[(Cache - Redis)]
+        M[(File Storage - S3/CDN)]
+        N[(Analytics DB - MongoDB)]
+        
+        K1[Users Table]
+        K2[Sessions Table]
+        K3[Rotations Table]
+        K4[Subscriptions Table]
+        L1[Session Cache]
+        L2[User Cache]
+        M1[Audio Files]
+        M2[User Avatars]
+    end
+    
+    subgraph "External Services"
+        O[Payment Gateway - Stripe]
+        P[Push Notification - FCM/APNS]
+        Q[Analytics - Mixpanel/Amplitude]
+        R[Auth Provider - Firebase Auth]
+    end
+    
+    %% Connections
+    A1 --> B
+    A2 --> B
+    A3 --> B
+    A4 --> B
+    A5 --> B
+    A6 --> B
+    
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    B --> G
+    B --> H
+    B --> I
+    
+    A2 --> J
+    A3 --> J
+    
+    D2 --> J
+    E --> J
+    
+    C --> K
+    D --> K
+    E --> K
+    G --> K
+    
+    D --> L
+    E --> L
+    C --> L
+    
+    I --> M
+    A5 --> M
+    
+    H --> N
+    
+    G --> O
+    F --> P
+    H --> Q
+    C --> R
+    
+    style A fill:#4CAF50
+    style B fill:#2196F3
+    style J fill:#FF9800
+    style K fill:#9C27B0
+    style L fill:#F44336
+    style M fill:#00BCD4
+    style N fill:#795548

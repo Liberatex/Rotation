@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "ROTATION",
+    "slug": "rotation-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rotation.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "We need access to your microphone to record custom sounds.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to select avatars."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.rotation.app",
+      "permissions": [
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@react-native-firebase/app"
+      ],
+      [
+        "@react-native-firebase/auth"
+      ],
+      [
+        "@react-native-firebase/messaging"
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you set your avatar."
+        }
+      ]
+    ]
+  }
+}
+
