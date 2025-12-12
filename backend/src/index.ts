@@ -51,11 +51,12 @@ const startServer = async () => {
   try {
     await testDatabaseConnection();
     
-    httpServer.listen(config.port, () => {
-      logger.info(`🚀 Server running on port ${config.port}`);
+    const port = process.env.PORT || config.port;
+    httpServer.listen(port, () => {
+      logger.info(`🚀 Server running on port ${port}`);
       logger.info(`📝 Environment: ${config.nodeEnv}`);
-      logger.info(`🔗 API: http://localhost:${config.port}/api/${config.apiVersion}`);
-      logger.info(`🔌 WebSocket: ws://localhost:${config.port}`);
+      logger.info(`🔗 API: http://localhost:${port}/api/${config.apiVersion}`);
+      logger.info(`🔌 WebSocket: ws://localhost:${port}`);
     });
   } catch (error) {
     logger.error('Failed to start server:', error);
