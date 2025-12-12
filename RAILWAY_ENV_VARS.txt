@@ -1,0 +1,83 @@
+# Railway Environment Variables
+# Copy these into Railway → Your Service → Variables
+
+# ============================================
+# SERVER CONFIGURATION
+# ============================================
+NODE_ENV=production
+PORT=3000
+API_VERSION=v1
+
+# ============================================
+# DATABASE (Auto-set by Railway PostgreSQL)
+# ============================================
+# DATABASE_URL will be automatically set by Railway
+# Format: postgresql://postgres:password@host:5432/railway
+
+# ============================================
+# REDIS (Auto-set by Railway Redis)
+# ============================================
+# REDIS_HOST will be automatically set by Railway
+# REDIS_PORT will be automatically set by Railway (usually 6379)
+# REDIS_PASSWORD= (usually empty)
+
+# ============================================
+# JWT SECRETS (GENERATE THESE - See below)
+# ============================================
+JWT_SECRET=<GENERATE_SECURE_SECRET>
+JWT_REFRESH_SECRET=<GENERATE_SECURE_SECRET>
+JWT_EXPIRES_IN=15m
+JWT_REFRESH_EXPIRES_IN=7d
+
+# Generate secrets with:
+# node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+# ============================================
+# CORS CONFIGURATION
+# ============================================
+CORS_ORIGIN=*
+# Or specific domains:
+# CORS_ORIGIN=https://your-app.com,https://www.your-app.com
+
+# ============================================
+# WEBSOCKET CONFIGURATION
+# ============================================
+WS_PORT=3001
+
+# ============================================
+# RATE LIMITING
+# ============================================
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# ============================================
+# OPTIONAL: FIREBASE (If using Firebase Auth)
+# ============================================
+# FIREBASE_PROJECT_ID=
+# FIREBASE_PRIVATE_KEY=
+# FIREBASE_CLIENT_EMAIL=
+
+# ============================================
+# OPTIONAL: STRIPE (If using payments)
+# ============================================
+# STRIPE_SECRET_KEY=
+# STRIPE_WEBHOOK_SECRET=
+
+# ============================================
+# OPTIONAL: AWS S3 (If using file storage)
+# ============================================
+# AWS_ACCESS_KEY_ID=
+# AWS_SECRET_ACCESS_KEY=
+# AWS_REGION=us-east-1
+# AWS_S3_BUCKET=
+
+# ============================================
+# INSTRUCTIONS
+# ============================================
+# 1. Copy the variables above (without comments)
+# 2. Generate JWT secrets using the command shown
+# 3. Replace <GENERATE_SECURE_SECRET> with generated values
+# 4. Paste into Railway → Your Service → Variables → + New Variable
+# 5. Railway will auto-set DATABASE_URL, REDIS_HOST, REDIS_PORT
+# 6. Save and redeploy
+
